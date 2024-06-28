@@ -1,0 +1,73 @@
+options:
+  - key: region
+    value: us-west-2
+    displayName: AWS Region
+    description: The AWS Region to deploy the solution to.
+    displayType: region
+    possibleValues:
+      - us-west-1
+      - us-west-2
+      - us-east-1
+      - us-east-2
+  - key: bucketPrefix
+    displayName: S3 Bucket Prefix
+    description: The S3 Bucket to use for staging resource deployments
+    displayType: string
+    optional: false
+  - key: AdminName
+    value: ''
+    displayName: Administrator Name
+    description: The name of the administrative user.
+    displayType: string
+    optional: false
+  - key: AdminEmail
+    value: ''
+    displayName: Administrator Email
+    description: The email address of the administrative user.
+    displayType: string
+    optional: false
+  - key: Deployment
+    value:
+      name: prod_environment
+      environmentType: PRODUCTION
+    displayType: environment
+    displayName: Deployment Details
+    description: Select an AWS Account Connection to deploy this solution to.
+    environmentOptions:
+      accountConnections:
+        - name: awsAccountConnection
+          roles:
+            - name: launchRole
+              capabilities:
+                - '*'
+  - key: publicEcrRegistry
+    validationRegex: '^[a-z][a-z0-9-_]*$'
+    validationMessage: 'Repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.'
+    displayName: Public ECR Repository Name
+    description: Specify a public ECR registry if you'd like to customize the test image
+    optional: true
+    value: ''
+  - key: publicImageTag
+    displayName: Public image tag
+    description: Specify a public image tag if you'd like to customize the test image
+    optional: false
+    value: 'v3.2.8'
+  - key: solutionVersion
+    displayName: Solution Version
+    description: Version of the solution
+    value: 'v3.2.8'
+  - key: ExistingVPCId
+    displayName: Existing VPC Identifier
+    description: The VPC to attach EC2 load test instances to.
+    displayType: string
+    optional: true
+  - key: ExistingSubnetA
+    displayName: Existing Subnet A Identifier
+    description: The first subnet to attach EC2 load test instances to.
+    displayType: string
+    optional: true
+  - key: ExistingSubnetB
+    displayName: Existing Subnet A Identifier
+    description: The second subnet to attach EC2 load test instances to.
+    displayType: string
+    optional: true

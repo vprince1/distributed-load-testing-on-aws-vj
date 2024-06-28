@@ -40,6 +40,9 @@ Actions:
         - Run:
             echo aws s3api create-bucket --bucket $BUCKET_NAME  --region $REGION
             --create-bucket-configuration LocationConstraint=$REGION
+        - Run:
+            aws s3api create-bucket --bucket $BUCKET_NAME  --region $REGION
+            --create-bucket-configuration LocationConstraint=$REGION
         - Run: aws s3 sync ./regional-s3-assets
             s3://$BUCKET_NAME/distributed-load-testing-on-aws/$solutionVersion/
         - Run: aws s3 sync ./global-s3-assets

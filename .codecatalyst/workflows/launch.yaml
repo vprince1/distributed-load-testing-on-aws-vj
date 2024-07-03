@@ -58,7 +58,7 @@ Actions:
       - build
     Identifier: aws/cfn-deploy@v1
     Configuration:
-      parameter-overrides: ExistingVPCId=,ExistingSubnetA=,ExistingSubnetB=,AdminName=PLACEHOLDER,AdminEmail=PLACEHOLDER
+      parameter-overrides: ExistingVPCId=,ExistingSubnetA=,ExistingSubnetB=,AdminName=$AdminName,AdminEmail=$AdminEmail
       capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
       template: https://{{bucketPrefix}}-{{region}}.s3.{{region}}.amazonaws.com/distributed-load-testing-on-aws/{{solutionVersion}}/distributed-load-testing-on-aws.template
       region: {{ region }}
